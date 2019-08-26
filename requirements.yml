@@ -1,0 +1,6 @@
+---
+- name: rvm.ruby
+  src: https://github.com/rvm/rvm1-ansible.git
+  scm: git
+  version: v2.1.2
+...

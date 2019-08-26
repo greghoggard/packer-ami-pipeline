@@ -17,7 +17,7 @@
       "instance_type": "t2.micro",
       "ssh_username": "{{user `ssh_username`}}",
       "ami_name": "AMZN-Linux-NGINX-{{timestamp}}",
-      "ami_description": "Simple Amazon Linux instance with NGINX installed",
+      "ami_description": "Simple Amazon Linux instance with Ruby installed",
       "vpc_id": "{{user `vpc_id`}}",
       "subnet_id": "{{user `subnet_id`}}",
       "associate_public_ip_address": true,
@@ -32,13 +32,14 @@
 
   "provisioners": [
     {
-      "type": "chef-solo",
-      "cookbook_paths": [
-        "cookbooks"
-      ],
-      "execute_command": "{{if .Sudo}}sudo {{end}}chef-solo --chef-license accept-silent -c {{.ConfigPath}} -j /tmp/node.json",
-      "run_list": [
-        "nginx"
+      "type": "shell-local",
+      "command": "ansible-galaxy install -p vendor -r requirements.yml -v -f"
+    },
+    {
+      "type": "ansible",
+      "playbook_file": "./playbooks/playbook.yml",
+      "extra_arguments": [
+        "--extra-vars", "ansible_python_interpreter=/usr/bin/python3"
       ]
     }
   ],
