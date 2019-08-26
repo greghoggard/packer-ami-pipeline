@@ -38,12 +38,12 @@
     },
     {
       "type": "ansible-local",
-      "playbook_file": "playbooks/playbook.yaml",
+      "playbook_file": "ansible/playbook.yaml",
       "role_paths": [
-        "./vendor"
+        "ansible/roles/common"
       ],
-      "playbook_dir": "playbooks",
-      "galaxy_file": "./requirements.yaml"
+      "playbook_dir": "ansible",
+      "galaxy_file": "ansible/requirements.yaml"
     },
     {
       "type": "shell",
