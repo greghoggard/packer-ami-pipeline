@@ -46,6 +46,12 @@
     {
       "type": "shell",
       "inline": [
+        "sudo yum install git -y"
+      ]
+    },
+    {
+      "type": "shell",
+      "inline": [
         "sudo pip install ansible==2.7.9"
       ]
     },
