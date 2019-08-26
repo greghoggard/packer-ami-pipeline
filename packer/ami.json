@@ -32,6 +32,12 @@
 
   "provisioners": [
     {
+      "type": "shell",
+      "inline": [
+          "sudo pip install ansible"
+      ]
+    },
+    {
       "type": "shell-local",
       "command": "ansible-galaxy install -p vendor -r requirements.yml -v -f"
     },
