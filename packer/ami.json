@@ -34,21 +34,21 @@
     {
       "type": "shell",
       "inline": [
-        "sudo yum update"
+        "sudo yum install python37"
       ]
     },
     {
       "type": "shell",
       "inline": [
-        "sudo yum -y upgrade"
+        "sudo yum -y install python-pip"
       ]
     },
-    {
-      "type": "shell",
-      "inline": [
-        "sudo yum install -y python-dev python-pip"
-      ]
-    },
+    // {
+    //   "type": "shell",
+    //   "inline": [
+    //     "python3 get-pip.py"
+    //   ]
+    // },
     {
       "type": "shell",
       "inline": [
