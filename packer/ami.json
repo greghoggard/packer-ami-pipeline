@@ -36,6 +36,7 @@
       "cookbook_paths": [
         "cookbooks"
       ],
+      "execute_command": "{{if .Sudo}}sudo {{end}}chef-solo --chef-license accept-silent -c {{.ConfigPath}} -j /tmp/node.json",
       "run_list": [
         "nginx"
       ]
