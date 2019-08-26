@@ -5,8 +5,8 @@
   become: yes           # majority of CIS tasks require root
   vars:
     rvm1_rubies: ['ruby-2.2.5'],
-      rvm1_install_flags: '--auto-dotfiles',     # Remove --user-install from defaults
-      rvm1_install_path: /usr/local/rvm,         # Set to system location
-      rvm1_user: root                            # Need root account to access system location
+    rvm1_install_flags: '--auto-dotfiles',     # Remove --user-install from defaults
+    rvm1_install_path: /usr/local/rvm,         # Set to system location
+    rvm1_user: root                            # Need root account to access system location
   roles:
     - rvm.ruby
