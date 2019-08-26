@@ -39,6 +39,7 @@
     },
     {
       "type": "shell-local",
+      "environment_vars": ["USER=root"],
       "command": "ansible-galaxy install -p vendor -r requirements.yml -v -f"
     },
     {
