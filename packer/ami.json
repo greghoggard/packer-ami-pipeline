@@ -30,26 +30,28 @@
     }
   ],
 
-  "provisioners": [
+  "provisioners": [{
+      "type": "shell",
+      "inline": [
+        "sudo pip install ansible==2.7.9"
+      ]
+    },
+    {
+      "type": "ansible-local",
+      "playbook_file": "playbooks/playbook.yaml",
+      "role_paths": [
+        "./vendor"
+      ],
+      "playbook_dir": "playbooks",
+      "galaxy_file": "./requirements.yaml"
+    },
     {
       "type": "shell",
       "inline": [
-          "sudo pip install ansible"
-      ]
-    },
-    {
-      "type": "shell-local",
-      "environment_vars": ["USER=root"],
-      "command": "ansible-galaxy install -p vendor -r requirements.yml -v -f"
-    },
-    {
-      "type": "ansible",
-      "playbook_file": "./playbooks/playbook.yml",
-      "extra_arguments": [
-        "--extra-vars", "ansible_python_interpreter=/usr/bin/python3"
+        "rm .ssh/authorized_keys ; sudo rm /root/.ssh/authorized_keys"
       ]
     }
-  ],
+  ]
 
   "post-processors": [
     {
