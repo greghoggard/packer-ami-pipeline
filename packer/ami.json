@@ -30,7 +30,26 @@
     }
   ],
 
-  "provisioners": [{
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "sudo apt-get update"
+      ]
+    },
+    {
+      "type": "shell",
+      "inline": [
+        "sudo apt-get -y upgrade"
+      ]
+    },
+    {
+      "type": "shell",
+      "inline": [
+        "sudo apt-get install -y python-dev python-pip"
+      ]
+    },
+    {
       "type": "shell",
       "inline": [
         "sudo pip install ansible==2.7.9"
