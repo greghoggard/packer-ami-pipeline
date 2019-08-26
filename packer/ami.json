@@ -34,7 +34,7 @@
     {
       "type": "shell",
       "inline": [
-        "sudo yum install python37"
+        "sudo yum -y install python37"
       ]
     },
     {
