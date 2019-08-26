@@ -51,7 +51,7 @@
         "rm .ssh/authorized_keys ; sudo rm /root/.ssh/authorized_keys"
       ]
     }
-  ]
+  ],
 
   "post-processors": [
     {
