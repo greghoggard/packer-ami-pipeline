@@ -16,10 +16,13 @@
     rvm1_bundler_install: True
     rvm1_rubies:
       - 'ruby-2.5.5'
-    rvm1_install_path: '~/.rvm'
+    rvm1_install_path: 'home/ec2-user/.rvm'
     rvm1_install_flags: '--auto-dotfiles  --user-install'
 
 # Installs latest available version of cfn-nag.
-- gem:
+- name: Install cfn-nag
+  gem:
     name: cfn-nag
     state: latest
+  become: true
+  become_user: ec2-user
