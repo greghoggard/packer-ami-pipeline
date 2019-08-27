@@ -22,3 +22,4 @@
 - gem:
     name: cfn-nag
     state: latest
+    user_install: no
