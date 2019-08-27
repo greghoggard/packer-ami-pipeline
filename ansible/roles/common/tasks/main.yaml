@@ -20,9 +20,23 @@
     rvm1_install_flags: '--auto-dotfiles  --user-install'
 
 # Installs latest available version of cfn-nag.
-- name: Install cfn-nag
-  gem:
-    name: cfn-nag
-    state: latest
-  become: true
-  become_user: ec2-user
+- name: Add permissions to rvm folder to allow writing to it
+  file:
+    path: /home/ec2-user/.rvm
+    mode: 0755
+    recurse: yes
+  become: yes
+
+- name: Install Gemstash gem
+  shell: sudo -u ec2-user -i gem install cfn-nag --no-ri --no-rdoc
+
+# - name: Install cfn-nag
+#   gem:
+#     name: cfn-nag
+#     state: latest
+#   become: true
+#   become_user: ec2-user
+
+# Configure the job worker
+# - name: Configure the job worker
+#   include_tasks: _job_worker.yaml
