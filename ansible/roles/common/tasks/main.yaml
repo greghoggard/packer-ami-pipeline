@@ -27,8 +27,11 @@
     recurse: yes
   become: yes
 
-- name: Install Gemstash gem
+- name: Install cfn-nag gem
   shell: sudo -u ec2-user -i gem install cfn-nag
+
+- name: Testing
+  shell: sudo -u ec2-user -i cfn_nag_rules
 
 # - name: Install cfn-nag
 #   gem:
