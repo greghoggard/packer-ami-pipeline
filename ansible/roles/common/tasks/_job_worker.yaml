@@ -14,3 +14,20 @@
   file:
     path: /home/ec2-user/worker
     state: directory
+
+# Copy job worker zip from s3
+- name: GET jobworker.zip from s3
+  s3:
+    bucket: greg-test-ami-job-worker
+    object: /jobworker.zip
+    dest: /home/ec2-user/worker
+    mode: get
+
+# Change ownership of worker directory
+- name: Recursively change ownership of a directory
+  file:
+    path: /home/ec2-user/worker
+    state: directory
+    recurse: yes
+    owner: ec2-user
+    group: ec2-user

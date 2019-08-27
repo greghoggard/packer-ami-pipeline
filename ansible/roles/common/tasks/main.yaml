@@ -28,7 +28,7 @@
   become: yes
 
 - name: Install Gemstash gem
-  shell: sudo -u ec2-user -i gem install cfn-nag --no-ri --no-rdoc
+  shell: sudo -u ec2-user -i gem install cfn-nag
 
 # - name: Install cfn-nag
 #   gem:
