@@ -3,11 +3,6 @@
   connection: local
   gather_facts: true    # gather OS info that is made available for tasks/roles
   become: yes           # majority of CIS tasks require root
-  vars:
-    rvm1_rubies: ['ruby-2.5.5']
-    rvm1_install_flags: '--auto-dotfiles'     # Remove --user-install from defaults
-    rvm1_install_path: /usr/local/rvm         # Set to system location
-    rvm1_user: root                            # Need root account to access system location
   roles:
     - common
-    - rvm.ruby
+    - cfn-nag
