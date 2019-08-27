@@ -3,11 +3,13 @@
 - name: Install boto3
   pip:
     name: boto3
+    extra_args: --user
 
 # Install requests
 - name: Install requests
   pip:
     name: requests
+    extra_args: --user
 
 # Create worker directory
 - name: Create a directory if it does not exist
@@ -31,3 +33,21 @@
     recurse: yes
     owner: ec2-user
     group: ec2-user
+
+- name: Unzip job
+  unarchive:
+    src: /home/ec2-user/worker/jobworker.zip
+    dest: /home/ec2-user/worker
+    remote_src: yes
+
+# Install requirements
+- name: Install requirements
+  pip:
+    requirements: requirements.txt
+    chdir: /home/ec2-user/worker
+
+# Change permissions of npm_job_worker.py
+- name: Change permissions of npm_job_worker.py
+  file:
+    path: /home/ec2-user/worker/npm_job_worker.py
+    mode: '0755'

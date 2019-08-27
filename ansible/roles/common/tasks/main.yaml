@@ -30,16 +30,6 @@
 - name: Install cfn-nag gem
   shell: sudo -u ec2-user -i gem install cfn-nag
 
-- name: Testing
-  shell: sudo -u ec2-user -i cfn_nag_rules
-
-# - name: Install cfn-nag
-#   gem:
-#     name: cfn-nag
-#     state: latest
-#   become: true
-#   become_user: ec2-user
-
 # Configure the job worker
-# - name: Configure the job worker
-#   include_tasks: _job_worker.yaml
+- name: Configure the job worker
+  include_tasks: _job_worker.yaml
