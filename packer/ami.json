@@ -18,7 +18,6 @@
       "ssh_username": "{{user `ssh_username`}}",
       "ami_name": "AMZN-Linux-NGINX-{{timestamp}}",
       "ami_description": "Simple Amazon Linux instance with Ruby installed",
-      "iam_instance_profile": "AmiInstanceRole",
       "vpc_id": "{{user `vpc_id`}}",
       "subnet_id": "{{user `subnet_id`}}",
       "associate_public_ip_address": true,
