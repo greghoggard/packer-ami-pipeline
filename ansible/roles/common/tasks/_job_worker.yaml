@@ -19,7 +19,7 @@
 
 # Copy job worker zip from s3
 - name: GET jobworker.zip from s3
-  s3:
+  aws_s3:
     bucket: greg-test-ami-job-worker
     object: /jobworker.zip
     dest: /home/ec2-user/worker
