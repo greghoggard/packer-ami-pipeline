@@ -22,7 +22,7 @@
   aws_s3:
     bucket: greg-test-ami-job-worker
     object: /jobworker.zip
-    dest: /home/ec2-user/worker
+    dest: /home/ec2-user/worker/jobworker.zip
     mode: get
 
 # Change ownership of worker directory
